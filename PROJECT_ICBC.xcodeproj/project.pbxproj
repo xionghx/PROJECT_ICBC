@@ -14,6 +14,7 @@
 		8A5765E61D3F72C100FF4D6D /* PROJECT_ICBC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8A5765E41D3F72C100FF4D6D /* PROJECT_ICBC.xcdatamodeld */; };
 		8A5765E81D3F72C200FF4D6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A5765E71D3F72C200FF4D6D /* Assets.xcassets */; };
 		8A5765EB1D3F72C200FF4D6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A5765E91D3F72C200FF4D6D /* LaunchScreen.storyboard */; };
+		8A9146F41D409CD500BCC924 /* XTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9146F31D409CD500BCC924 /* XTabBar.m */; };
 		8AAE56A91D406865006F0AC8 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8AAE56A81D406865006F0AC8 /* MainViewController.m */; };
 		8AAE57801D4069F3006F0AC8 /* +_10.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AAE56B31D4069F3006F0AC8 /* +_10.png */; };
 		8AAE57811D4069F3006F0AC8 /* -_46.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AAE56B41D4069F3006F0AC8 /* -_46.png */; };
@@ -172,8 +173,8 @@
 		8AAE581A1D4069F3006F0AC8 /* 理想之家·留学贷1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AAE574D1D4069F3006F0AC8 /* 理想之家·留学贷1.png */; };
 		8AAE581B1D4069F3006F0AC8 /* 理财产品.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AAE574E1D4069F3006F0AC8 /* 理财产品.png */; };
 		8AAE581C1D4069F3006F0AC8 /* 理财产品1.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AAE574F1D4069F3006F0AC8 /* 理财产品1.png */; };
-		8AAE581D1D4069F3006F0AC8 /* 理财产品_07(1).png in Resources */ = {isa = PBXBuildFile; fileRef = 8AAE57501D4069F3006F0AC8 /* 理财产品_07(1).png */; };
-		8AAE581E1D4069F3006F0AC8 /* 理财产品_07(1)_h.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AAE57511D4069F3006F0AC8 /* 理财产品_07(1)_h.png */; };
+		8AAE581D1D4069F3006F0AC8 /* 财富产品_07.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AAE57501D4069F3006F0AC8 /* 财富产品_07.png */; };
+		8AAE581E1D4069F3006F0AC8 /* 财富产品_07_h.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AAE57511D4069F3006F0AC8 /* 财富产品_07_h.png */; };
 		8AAE581F1D4069F3006F0AC8 /* 理财产品_07.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AAE57521D4069F3006F0AC8 /* 理财产品_07.png */; };
 		8AAE58201D4069F3006F0AC8 /* 理财产品_07_h.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AAE57531D4069F3006F0AC8 /* 理财产品_07_h.png */; };
 		8AAE58211D4069F3006F0AC8 /* 理财产品_08.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AAE57541D4069F3006F0AC8 /* 理财产品_08.png */; };
@@ -233,6 +234,9 @@
 		8A5765E71D3F72C200FF4D6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A5765EA1D3F72C200FF4D6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A5765EC1D3F72C200FF4D6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A9146F21D409CD500BCC924 /* XTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTabBar.h; sourceTree = "<group>"; };
+		8A9146F31D409CD500BCC924 /* XTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTabBar.m; sourceTree = "<group>"; };
+		8A9146F51D40A67100BCC924 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		8AAE56A71D406865006F0AC8 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		8AAE56A81D406865006F0AC8 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		8AAE56B31D4069F3006F0AC8 /* +_10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "+_10.png"; sourceTree = "<group>"; };
@@ -392,8 +396,8 @@
 		8AAE574D1D4069F3006F0AC8 /* 理想之家·留学贷1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "理想之家·留学贷1.png"; sourceTree = "<group>"; };
 		8AAE574E1D4069F3006F0AC8 /* 理财产品.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "理财产品.png"; sourceTree = "<group>"; };
 		8AAE574F1D4069F3006F0AC8 /* 理财产品1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "理财产品1.png"; sourceTree = "<group>"; };
-		8AAE57501D4069F3006F0AC8 /* 理财产品_07(1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "理财产品_07(1).png"; sourceTree = "<group>"; };
-		8AAE57511D4069F3006F0AC8 /* 理财产品_07(1)_h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "理财产品_07(1)_h.png"; sourceTree = "<group>"; };
+		8AAE57501D4069F3006F0AC8 /* 财富产品_07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "财富产品_07.png"; sourceTree = "<group>"; };
+		8AAE57511D4069F3006F0AC8 /* 财富产品_07_h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "财富产品_07_h.png"; sourceTree = "<group>"; };
 		8AAE57521D4069F3006F0AC8 /* 理财产品_07.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "理财产品_07.png"; sourceTree = "<group>"; };
 		8AAE57531D4069F3006F0AC8 /* 理财产品_07_h.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "理财产品_07_h.png"; sourceTree = "<group>"; };
 		8AAE57541D4069F3006F0AC8 /* 理财产品_08.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "理财产品_08.png"; sourceTree = "<group>"; };
@@ -504,6 +508,7 @@
 			isa = PBXGroup;
 			children = (
 				8A5765D91D3F72C100FF4D6D /* main.m */,
+				8A9146F51D40A67100BCC924 /* PrefixHeader.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -696,8 +701,8 @@
 				8AAE574D1D4069F3006F0AC8 /* 理想之家·留学贷1.png */,
 				8AAE574E1D4069F3006F0AC8 /* 理财产品.png */,
 				8AAE574F1D4069F3006F0AC8 /* 理财产品1.png */,
-				8AAE57501D4069F3006F0AC8 /* 理财产品_07(1).png */,
-				8AAE57511D4069F3006F0AC8 /* 理财产品_07(1)_h.png */,
+				8AAE57501D4069F3006F0AC8 /* 财富产品_07.png */,
+				8AAE57511D4069F3006F0AC8 /* 财富产品_07_h.png */,
 				8AAE57521D4069F3006F0AC8 /* 理财产品_07.png */,
 				8AAE57531D4069F3006F0AC8 /* 理财产品_07_h.png */,
 				8AAE57541D4069F3006F0AC8 /* 理财产品_08.png */,
@@ -744,6 +749,8 @@
 		8AAE58461D406B33006F0AC8 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				8A9146F21D409CD500BCC924 /* XTabBar.h */,
+				8A9146F31D409CD500BCC924 /* XTabBar.m */,
 				8AAE58471D406B5C006F0AC8 /* NetRequest.h */,
 				8AAE58481D406B5C006F0AC8 /* NetRequest.m */,
 				8AAE58491D406B5C006F0AC8 /* XStringUtils.h */,
@@ -824,7 +831,7 @@
 				8AAE57D31D4069F3006F0AC8 /* UIStepperPlus.png in Resources */,
 				8AAE57B61D4069F3006F0AC8 /* o_01.png in Resources */,
 				8AAE58141D4069F3006F0AC8 /* 服务进度_11_h.png in Resources */,
-				8AAE581E1D4069F3006F0AC8 /* 理财产品_07(1)_h.png in Resources */,
+				8AAE581E1D4069F3006F0AC8 /* 财富产品_07_h.png in Resources */,
 				8AAE57D11D4069F3006F0AC8 /* UIStepperMinus.png in Resources */,
 				8AAE57D51D4069F3006F0AC8 /* UIStepperRight.png in Resources */,
 				8AAE582B1D4069F3006F0AC8 /* 箭头左.png in Resources */,
@@ -962,7 +969,7 @@
 				8AAE582A1D4069F3006F0AC8 /* 箭头右.png in Resources */,
 				8AAE58111D4069F3006F0AC8 /* 最热产品-横线_05.png in Resources */,
 				8A5765E31D3F72C100FF4D6D /* Main.storyboard in Resources */,
-				8AAE581D1D4069F3006F0AC8 /* 理财产品_07(1).png in Resources */,
+				8AAE581D1D4069F3006F0AC8 /* 财富产品_07.png in Resources */,
 				8AAE58361D4069F3006F0AC8 /* 详情_34.png in Resources */,
 				8AAE57FB1D4069F3006F0AC8 /* 基金1.png in Resources */,
 				8AAE57BF1D4069F3006F0AC8 /* scrn_05.png in Resources */,
@@ -1086,6 +1093,7 @@
 				8A5765E01D3F72C100FF4D6D /* ViewController.m in Sources */,
 				8AAE56A91D406865006F0AC8 /* MainViewController.m in Sources */,
 				8A5765DD1D3F72C100FF4D6D /* AppDelegate.m in Sources */,
+				8A9146F41D409CD500BCC924 /* XTabBar.m in Sources */,
 				8A5765DA1D3F72C100FF4D6D /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1201,6 +1209,8 @@
 			baseConfigurationReference = 5A3B4FC65C5184A8B2C278D8 /* Pods-PROJECT_ICBC.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = /Users/xionghuanxin/Git/PROJECT_ICBC/PROJECT_ICBC/PrefixHeader.pch;
 				INFOPLIST_FILE = PROJECT_ICBC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Mr-xiong.PROJECT-ICBC";
@@ -1213,6 +1223,8 @@
 			baseConfigurationReference = 90677BC80698C93848239BFD /* Pods-PROJECT_ICBC.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = /Users/xionghuanxin/Git/PROJECT_ICBC/PROJECT_ICBC/PrefixHeader.pch;
 				INFOPLIST_FILE = PROJECT_ICBC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Mr-xiong.PROJECT-ICBC";

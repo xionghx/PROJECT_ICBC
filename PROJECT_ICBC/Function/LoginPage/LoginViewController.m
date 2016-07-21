@@ -7,8 +7,9 @@
 //
 
 #import "LoginViewController.h"
+#import "AppDelegate.h"
+#import "MainViewController.h"
 #import "NetRequest.h"
-#import "Masonry.h"
 @interface LoginViewController ()
 @property(nonatomic,strong)UIImageView *backgroudImageView;
 @property(nonatomic,strong)UIImageView *loginView;
@@ -73,11 +74,6 @@
     }];
 }
 
--(void)checkboxClick:(UIButton *)sender
-{
-    sender.selected = !sender.selected;
-}
-
 #pragma mark-----------getter
 -(UIImageView *)backgroudImageView
 {
@@ -91,6 +87,7 @@
 {
     if (_loginView == nil) {
         _loginView = [[UIImageView alloc]init];
+        _loginView.userInteractionEnabled = YES;
         _loginView.image =[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"登录框_03" ofType:@"png" inDirectory:@""]];
         
         
@@ -130,7 +127,21 @@
         _loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _loginButton.backgroundColor = [UIColor redColor];
         [_loginButton setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"登录_03" ofType:@"" inDirectory:@""]] forState:UIControlStateNormal];
+        [_loginButton addTarget:self action:@selector(loginButtonTaped) forControlEvents:UIControlEventTouchUpInside];
     }
     return _loginButton;
 }
+#pragma mark------method
+-(void)checkboxClick:(UIButton *)sender
+{
+    sender.selected = !sender.selected;
+}
+-(void)loginButtonTaped
+
+{
+    UITabBarController * xTC = [[UITabBarController alloc]init];
+    xTC.viewControllers = @[[MainViewController new]];
+    [UIApplication sharedApplication].delegate.window.rootViewController = [MainViewController new];
+}
+
 @end
