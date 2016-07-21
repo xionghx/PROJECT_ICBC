@@ -1,5 +1,5 @@
 //
-//  MainViewController.h
+//  MainPage.h
 //  PROJECT_ICBC
 //
 //  Created by xionghuaxin on 7/21/16.
@@ -8,6 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainViewController : UIViewController
-
+@interface MainPage : UIView
 @end

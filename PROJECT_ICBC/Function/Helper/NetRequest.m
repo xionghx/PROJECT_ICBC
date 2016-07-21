@@ -21,7 +21,7 @@
                     password:(NSString *)sPassword
                   completion:(void(^)(id responseObject,NSError *error))completionBlock
 {
-    NSString * parameStr = [XStringUtils jsonStringWithParameters:@{@"username":sUsername,@"password":[XStringUtils md5HexDigestWithString:sPassword]} ];
+    NSString * parameStr = [XStringUtils jsonStringWithParameters:@{@"username":sUsername,@"password":sPassword}];
     
     [self POST:[NSString stringWithFormat:@"%@%@",POST_URL,@"/appIndex/appLogin"] parameters:[self getParametersByParams:parameStr] sucess:^(id responseObject) {
         completionBlock(responseObject,nil);
