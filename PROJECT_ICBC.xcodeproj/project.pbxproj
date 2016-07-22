@@ -14,6 +14,8 @@
 		8A5765E61D3F72C100FF4D6D /* PROJECT_ICBC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8A5765E41D3F72C100FF4D6D /* PROJECT_ICBC.xcdatamodeld */; };
 		8A5765E81D3F72C200FF4D6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A5765E71D3F72C200FF4D6D /* Assets.xcassets */; };
 		8A5765EB1D3F72C200FF4D6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A5765E91D3F72C200FF4D6D /* LaunchScreen.storyboard */; };
+		8A5F2B7C1D424E0D0051B016 /* PolicyAdviceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5F2B7B1D424E0D0051B016 /* PolicyAdviceView.m */; };
+		8A5F2B7F1D424E690051B016 /* policyAdviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5F2B7E1D424E690051B016 /* policyAdviceCell.m */; };
 		8A9146F41D409CD500BCC924 /* XTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9146F31D409CD500BCC924 /* XTabBar.m */; };
 		8A9146FD1D40B45F00BCC924 /* AboroadService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9146FC1D40B45F00BCC924 /* AboroadService.m */; };
 		8A9147001D40B47800BCC924 /* FinanceProducts.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9146FF1D40B47800BCC924 /* FinanceProducts.m */; };
@@ -239,6 +241,10 @@
 		8A5765E71D3F72C200FF4D6D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A5765EA1D3F72C200FF4D6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A5765EC1D3F72C200FF4D6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A5F2B7A1D424E0D0051B016 /* PolicyAdviceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PolicyAdviceView.h; sourceTree = "<group>"; };
+		8A5F2B7B1D424E0D0051B016 /* PolicyAdviceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolicyAdviceView.m; sourceTree = "<group>"; };
+		8A5F2B7D1D424E690051B016 /* policyAdviceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = policyAdviceCell.h; sourceTree = "<group>"; };
+		8A5F2B7E1D424E690051B016 /* policyAdviceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = policyAdviceCell.m; sourceTree = "<group>"; };
 		8A9146F21D409CD500BCC924 /* XTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTabBar.h; sourceTree = "<group>"; };
 		8A9146F31D409CD500BCC924 /* XTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTabBar.m; sourceTree = "<group>"; };
 		8A9146F51D40A67100BCC924 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -528,9 +534,21 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		8A5F2B791D424DE30051B016 /* PolicyAdviceList */ = {
+			isa = PBXGroup;
+			children = (
+				8A5F2B7A1D424E0D0051B016 /* PolicyAdviceView.h */,
+				8A5F2B7B1D424E0D0051B016 /* PolicyAdviceView.m */,
+				8A5F2B7D1D424E690051B016 /* policyAdviceCell.h */,
+				8A5F2B7E1D424E690051B016 /* policyAdviceCell.m */,
+			);
+			path = PolicyAdviceList;
+			sourceTree = "<group>";
+		};
 		8A9146F61D40B43D00BCC924 /* AbroadService */ = {
 			isa = PBXGroup;
 			children = (
+				8A5F2B791D424DE30051B016 /* PolicyAdviceList */,
 				8A9146FB1D40B45F00BCC924 /* AboroadService.h */,
 				8A9146FC1D40B45F00BCC924 /* AboroadService.m */,
 			);
@@ -1155,10 +1173,12 @@
 				8A5765E61D3F72C100FF4D6D /* PROJECT_ICBC.xcdatamodeld in Sources */,
 				8AAE584B1D406B5C006F0AC8 /* NetRequest.m in Sources */,
 				8A9147031D40B48400BCC924 /* MainPage.m in Sources */,
+				8A5F2B7C1D424E0D0051B016 /* PolicyAdviceView.m in Sources */,
 				8A9147001D40B47800BCC924 /* FinanceProducts.m in Sources */,
 				8AAE584C1D406B5C006F0AC8 /* XStringUtils.m in Sources */,
 				8A5765E01D3F72C100FF4D6D /* ViewController.m in Sources */,
 				8A9147091D40B4A500BCC924 /* ServiceProgress.m in Sources */,
+				8A5F2B7F1D424E690051B016 /* policyAdviceCell.m in Sources */,
 				8A91470D1D40B58B00BCC924 /* RootViewController.m in Sources */,
 				8A5765DD1D3F72C100FF4D6D /* AppDelegate.m in Sources */,
 				8A9146F41D409CD500BCC924 /* XTabBar.m in Sources */,

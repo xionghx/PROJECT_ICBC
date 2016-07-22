@@ -12,7 +12,7 @@
 #import "FinanceProducts.h"
 #import "PickedList.h"
 #import "ServiceProgress.h"
-
+#import "LoginViewController.h"
 
 
 @interface RootViewController ()
@@ -184,7 +184,7 @@
     [self.view addSubview:self.headerShadowView];
     [self.headerShadowView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(self.headerView);
-        make.centerY.equalTo(self.headerView.mas_bottom);
+        make.top.equalTo(self.headerView.mas_bottom);
         make.width.equalTo(self.headerView);
         make.height.offset(13);
     }];
@@ -229,7 +229,7 @@
         [self.view addSubview: self.measureView];
         [self.measureView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.and.right.equalTo(self.mainPage);
-            make.bottom.equalTo(self.mainPage.mas_top);
+            make.bottom.equalTo(self.mainPage);
             make.height.equalTo(self.mainPage);
         }];
         
@@ -260,8 +260,6 @@
             make.bottom.equalTo(self.mainPage.mas_top);
             make.height.equalTo(self.mainPage);
         }];
-        [self.view sendSubviewToBack:self.measureView];
-        [self.view bringSubviewToFront:self.mainPage];
         [self.view bringSubviewToFront:self.headerShadowView];
         [self.view bringSubviewToFront:self.headerView];
 
@@ -275,7 +273,6 @@
         [self.viewArray addObject:self.financeProducts];
         [self.viewArray addObject:self.pickedList];
         [self.viewArray addObject:self.serviceProgress];
-        self.mainPage.center = self.measureView.center;
         
     }
 }
@@ -303,13 +300,13 @@
     if (willShowView.tag>willDisapperView.tag) {
         
         willShowView.center = CGPointMake(willDisapperView.center.x, willDisapperView.center.y + willDisapperView.frame.size.height);
-        [UIView animateWithDuration:1 animations:^{
+        [UIView animateWithDuration:0.3 animations:^{
             willShowView.center = willDisapperView.center;
             willDisapperView.center = CGPointMake(willDisapperView.center.x, willDisapperView.center.y-willDisapperView.frame.size.height);
         }];
     }else{
         willShowView.center = CGPointMake(willDisapperView.center.x, willDisapperView.center.y -willDisapperView.frame.size.height);
-        [UIView animateWithDuration:1 animations:^{
+        [UIView animateWithDuration:0.3 animations:^{
             willShowView.center = willDisapperView.center;
             willDisapperView.center = CGPointMake(willDisapperView.center.x, willDisapperView.center.y+willDisapperView.frame.size.height);
         }];
@@ -319,6 +316,8 @@
 
 -(void)logout
 {
-    [self.logoutDelegate logout];
+    [self presentViewController:[LoginViewController new] animated:YES completion:^{
+        
+    }];
 }
 @end

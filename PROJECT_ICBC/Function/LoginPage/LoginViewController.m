@@ -11,7 +11,7 @@
 #import "RootViewController.h"
 #import "XStringUtils.h"
 #import "NetRequest.h"
-@interface LoginViewController ()<UITextFieldDelegate,loginoutdelegate>
+@interface LoginViewController ()<UITextFieldDelegate>
 @property(nonatomic,strong)UIImageView *backgroudImageView;
 @property(nonatomic,strong)UIImageView *loginView;
 @property(nonatomic,strong)UITextField *accountTextField;
@@ -24,19 +24,32 @@
 
 @end
 @implementation LoginViewController
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.view layoutIfNeeded];
+    [self.loginView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.mas_equalTo(self.view);
+        make.size.mas_equalTo(CGSizeMake(386, 492));
+        make.top.equalTo(self.view.mas_bottom);
+    }];
+}
+
 -(void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     [UIView animateWithDuration:1 animations:^{
+        [self.loginView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.mas_equalTo(self.view);
+            make.size.mas_equalTo(CGSizeMake(386, 492));
+            make.centerY.equalTo(self.view);
+        }];
         self.loginView.center = self.view.center;
-    } completion:^(BOOL finished) {
-        
     }];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupUI];
-    
-    
 }
 -(void)setupUI
 {
@@ -71,6 +84,9 @@
         make.top.equalTo(self.passwordTextField.mas_bottom).offset(70);
         make.size.mas_equalTo(CGSizeMake(150, 50));
     }];
+    
+    //    self.loginView.center = CGPointMake(self.view.center.x, 2000);
+    
 }
 
 #pragma mark-----------getter
@@ -109,7 +125,7 @@
         _passwordTextField.delegate = self;
         _passwordTextField.tag = 202;
         _passwordTextField.secureTextEntry = YES;
-
+        
     }
     return _passwordTextField;
 }
@@ -128,7 +144,7 @@
     if (_loginButton == nil) {
         _loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_loginButton setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"登录_03" ofType:@"png" inDirectory:@""]] forState:UIControlStateNormal];
-        [_loginButton addTarget:self action:@selector(loginButtonTaped) forControlEvents:UIControlEventTouchUpInside];
+        [_loginButton addTarget:self action:@selector(superLogin) forControlEvents:UIControlEventTouchUpInside];
     }
     return _loginButton;
 }
@@ -137,11 +153,17 @@
 {
     sender.selected = !sender.selected;
 }
+-(void)superLogin
+{                RootViewController *RootVC = [RootViewController new];
+    [UIApplication sharedApplication].delegate.window.rootViewController = RootVC;
+
+    
+}
 -(void)loginButtonTaped
 
 {
     static NSInteger inputTime = 3;
-
+    
     NSString *plistPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     plistPath = [plistPath stringByAppendingString:@"/savedPassword.plist"];
     if (self.passwordRemenberCheckbox.selected == YES) {
@@ -172,12 +194,11 @@
         if (error) {
             NSLog(@"%@",error);
         }else{
-            NSLog(@"%@",responseObject);
+//            NSLog(@"%@",responseObject);
             if ([responseObject[@"resultCode"] isEqualToString:@"0"]) {
                 
                 RootViewController *RootVC = [RootViewController new];
-                RootVC.logoutDelegate = self;
-                [UIApplication sharedApplication].delegate.window.rootViewController = [RootViewController new];
+                [UIApplication sharedApplication].delegate.window.rootViewController = RootVC;
             }else if ([responseObject[@"resultCode"] isEqualToString:@"110"]){
                 if (inputTime > 0) {
                     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"账号或密码错误!" message:[NSString stringWithFormat:@"剩余%ld次机会",inputTime] preferredStyle:UIAlertControllerStyleAlert];
@@ -226,7 +247,7 @@
     }
     
     if (textField.tag == 202) {
-
+        
         
     }
     return YES;
@@ -239,6 +260,10 @@
 -(void)logout
 {
     [UIApplication sharedApplication].delegate.window.rootViewController = [LoginViewController new];
-
+    
 }
+
+
+
+
 @end

@@ -66,6 +66,18 @@
 +(void)getMetalsDetailWithId:(NSString *)Id
                   completion:(void(^)(id responseObject,NSError *error))completionBlock;
 
++(void)getInsureListWithPageSize:(NSString *)pageSize
+                      andPageNum:(NSString *)pageNum
+                          userId:(NSString *)userId
+                      completion:(void(^)(id responseObject,NSError *error))completionBlock;
++(void)getInsureDetailWithId:(NSString *)Id
+                  completion:(void(^)(id responseObject,NSError *error))completionBlock;
++(void)getMetalsOtherInfoWithAgeId:(NSString *)ageId
+                            typeId:(NSString *)typeId
+                         purposeId:(NSString *)purposeId
+                        supplierId:(NSString *)supplierId
+                        completion:(void(^)(id responseObject,NSError *error))completionBlock;
+
 
 
 

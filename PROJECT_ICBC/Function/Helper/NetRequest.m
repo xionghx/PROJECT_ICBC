@@ -53,7 +53,7 @@
                             completion:(void(^)(id responseObject,NSError *error))completionBlock
 {
     NSString * parameStr = [XStringUtils jsonStringWithParameters:@{@"pageSize":pageSize,@"pageNum":pageNum,@"byTitle":byTitle,@"byKeyWords":byKeyWords}];
-    [self POST:[NSString stringWithFormat:@"%@%@",POST_URL,@"/appAbroad/getChooseByYourselfModeList"] parameters:[self getParametersByParams:parameStr] sucess:^(id responseObject) {
+    [self POST:[NSString stringWithFormat:@"%@%@",POST_URL,@"/appAbroad/getPolicyAdviceList"] parameters:[self getParametersByParams:parameStr] sucess:^(id responseObject) {
         completionBlock(responseObject,nil);
     } failure:^(NSError *error) {
         completionBlock(nil,error);
@@ -183,7 +183,7 @@
                       completion:(void(^)(id responseObject,NSError *error))completionBlock
 {
     NSString * parameStr = [XStringUtils jsonStringWithParameters:@{@"pageSize":pageSize,@"pageNum":pageNum,@"userId":userId}];
-    [self POST:[NSString stringWithFormat:@"%@%@",POST_URL,@"/appFinancial/getFundList"] parameters:[self getParametersByParams:parameStr] sucess:^(id responseObject) {
+    [self POST:[NSString stringWithFormat:@"%@%@",POST_URL,@"/appFinancial/getInsureList"] parameters:[self getParametersByParams:parameStr] sucess:^(id responseObject) {
         completionBlock(responseObject,nil);
     } failure:^(NSError *error) {
         completionBlock(nil,error);
@@ -191,7 +191,34 @@
     
 }
 
++(void)getInsureDetailWithId:(NSString *)Id
+                  completion:(void(^)(id responseObject,NSError *error))completionBlock
+{
+    NSString * parameStr = [XStringUtils jsonStringWithParameters:@{@"id":Id}];
+    [self POST:[NSString stringWithFormat:@"%@%@",POST_URL,@"/appFinancial/getInsureDetail"] parameters:[self getParametersByParams:parameStr] sucess:^(id responseObject) {
+        completionBlock(responseObject,nil);
+    } failure:^(NSError *error) {
+        completionBlock(nil,error);
+    }];
+    
+}
 
++(void)getMetalsOtherInfoWithAgeId:(NSString *)ageId
+                            typeId:(NSString *)typeId
+                         purposeId:(NSString *)purposeId
+                        supplierId:(NSString *)supplierId
+                        completion:(void(^)(id responseObject,NSError *error))completionBlock
+{
+    NSString * parameStr = [XStringUtils jsonStringWithParameters:@{@"ageId":ageId,@"typeId":typeId,@"purposeId":purposeId,@"supplierId":supplierId}];
+    [self POST:[NSString stringWithFormat:@"%@%@",POST_URL,@"/appFinancial/getMetalsOtherInfo"] parameters:[self getParametersByParams:parameStr] sucess:^(id responseObject) {
+        completionBlock(responseObject,nil);
+    } failure:^(NSError *error) {
+        completionBlock(nil,error);
+    }];
+    
+}
+
+//+(void)getFinancialOtherInfo
 
 
 + (void)GET:(NSString *)url parameters:(NSDictionary *)parameters sucess:(void (^)(id))sucess failure:(void (^)(NSError *))failure {

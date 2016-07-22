@@ -7,11 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-@protocol loginoutdelegate <NSObject>
--(void)logout;
-@end
+@class  LoginViewController;
 
 @interface RootViewController : UIViewController
-@property(nonatomic,assign)id<loginoutdelegate> logoutDelegate;
 
 @end

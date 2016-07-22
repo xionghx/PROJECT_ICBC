@@ -7,18 +7,70 @@
 //
 
 #import "policyAdviceCell.h"
+@interface policyAdviceCell ()
+@property(nonatomic,strong)UIImageView *backgroundImageView;
+@end
 
 @implementation policyAdviceCell
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    if (self) {
+        [self setupUI];
+    }
+    return self;
 }
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+#pragma mark-------getter
+-(UIImageView *)backgroundImageView
+{
+    if (_backgroundImageView == nil ) {
+        _backgroundImageView = [[UIImageView alloc]init];
+        _backgroundImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"excel_23" ofType:@"png" inDirectory:@""]];
+        
+        
+    }
+    return _backgroundImageView;
 }
-
+#pragma mark---------method
+-(void)setupValueWithData:(NSDictionary *)data
+{
+    
+}
+-(void)setupUI
+{
+    [self.backgroundView addSubview:self.backgroundImageView];
+    [self.backgroundImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.and.top.and.right.and.bottom.equalTo(self.backgroundView);
+    }];
+    [self.contentView addSubview:self.serialNumberLabel];
+    [self.serialNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.and.top.and.bottom.equalTo(self);
+        make.width.equalTo(@128);
+    }];
+    [self.contentView addSubview:self.contentLabel];
+    [self.contentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.right.top.bottom.equalTo(self);
+        make.left.equalTo(self.serialNumberLabel);
+    }];
+//    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.and.left.and.right.equalTo(self.backgroundView);
+//        make.bottom.equalTo(self.serialNumberLabel);
+//    }];
+}
+-(UILabel *)serialNumberLabel
+{
+    if (_serialNumberLabel == nil) {
+        _serialNumberLabel = [[UILabel alloc]init];
+        _serialNumberLabel.textAlignment = NSTextAlignmentCenter;
+    }
+    return _serialNumberLabel;
+}
+-(UILabel *)contentLabel
+{
+    if (_contentLabel == nil) {
+        _contentLabel = [[UILabel alloc]init];
+        _contentLabel.textAlignment = NSTextAlignmentCenter;
+    }
+    return _contentLabel;
+}
 @end
