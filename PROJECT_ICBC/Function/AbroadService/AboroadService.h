@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseFrame.h"
 
-@interface AboroadService : UIView
+@interface AboroadService : BaseFrame
 
 @end

@@ -13,6 +13,7 @@
 {
     self = [super init];
     if (self) {
+        self.titleLabel.text =@"FinanceProducts";
         self.backgroundColor = [UIColor greenColor];
     }
     return self;

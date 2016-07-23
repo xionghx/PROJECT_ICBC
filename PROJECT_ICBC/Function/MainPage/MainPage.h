@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseFrame.h"
 
-@interface MainPage : UIView
+@interface MainPage : BaseFrame
 @end

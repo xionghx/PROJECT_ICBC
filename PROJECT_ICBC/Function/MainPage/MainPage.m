@@ -14,6 +14,7 @@
     self = [super init];
     if (self) {
         self.backgroundColor = [UIColor yellowColor];
+        self.titleLabel.text = @"mainPage";
     }
     return self;
 }

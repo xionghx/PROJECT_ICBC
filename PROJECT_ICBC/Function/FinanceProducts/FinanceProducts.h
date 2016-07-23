@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseFrame.h"
 
-@interface FinanceProducts : UIView
+@interface FinanceProducts : BaseFrame
 
 @end

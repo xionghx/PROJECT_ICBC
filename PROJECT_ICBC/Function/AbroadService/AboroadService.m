@@ -27,8 +27,9 @@
 {
     self = [super init];
     if (self) {
-        self.backgroundColor = [UIColor grayColor];
+//        self.backgroundColor = [UIColor redColor];
         self.buttonArray = @[].mutableCopy;
+        self.titleLabel.text = @"AboroadService";
         [self loadDataSource];
         [self setupUI];
     }
@@ -87,8 +88,8 @@
 -(PolicyAdviceView *)policyAdviceView
 {
     if (_policyAdviceView == nil) {
-        _policyAdviceView = [[PolicyAdviceView alloc]init];
-        _policyAdviceView.backgroundColor = [UIColor greenColor];
+        _policyAdviceView = [[PolicyAdviceView alloc]initWithFrame:CGRectZero];
+//        _policyAdviceView.backgroundColor = [UIColor greenColor];
     }
     return _policyAdviceView;
 }
@@ -97,12 +98,12 @@
 -(void)setupUI
 {
     [self addSubview:self.policyAdviceView];
-//    [self.policyAdviceView mas_makeConstraints:^(MASConstraintMaker *make) {
-////        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
+    [self.policyAdviceView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
 ////        make.left.and.top.and.bottom.and.right.equalTo(self);
 //        make.size.equalTo(self);
 //        make.center.equalTo(self);
-//    }];
+    }];
     
     [self addSubview:self.buttonView];
     [self.buttonView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -141,7 +142,6 @@
         make.centerY.equalTo(self.mealsListButton);
         make.size.equalTo(self.mealsListButton);
         make.left.equalTo(self.mealsListButton.mas_right);
-/////////////////////////////////////////////////////////////////////////////////////////////
     }];
 }
 -(void)buttonTaped:(UIButton *)sender

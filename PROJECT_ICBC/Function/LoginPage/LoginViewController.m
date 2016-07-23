@@ -198,7 +198,9 @@
             if ([responseObject[@"resultCode"] isEqualToString:@"0"]) {
                 
                 RootViewController *RootVC = [RootViewController new];
-                [UIApplication sharedApplication].delegate.window.rootViewController = RootVC;
+                UINavigationController *rotNvc = [[UINavigationController alloc]initWithRootViewController:RootVC];
+//                rotNvc.navigationBarHidden = YES;
+                [UIApplication sharedApplication].delegate.window.rootViewController = rotNvc;
             }else if ([responseObject[@"resultCode"] isEqualToString:@"110"]){
                 if (inputTime > 0) {
                     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"账号或密码错误!" message:[NSString stringWithFormat:@"剩余%ld次机会",inputTime] preferredStyle:UIAlertControllerStyleAlert];

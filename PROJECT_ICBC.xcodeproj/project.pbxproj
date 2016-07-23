@@ -16,6 +16,8 @@
 		8A5765EB1D3F72C200FF4D6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A5765E91D3F72C200FF4D6D /* LaunchScreen.storyboard */; };
 		8A5F2B7C1D424E0D0051B016 /* PolicyAdviceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5F2B7B1D424E0D0051B016 /* PolicyAdviceView.m */; };
 		8A5F2B7F1D424E690051B016 /* policyAdviceCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5F2B7E1D424E690051B016 /* policyAdviceCell.m */; };
+		8A8C99BF1D4313CB00938378 /* BaseFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8C99BE1D4313CB00938378 /* BaseFrame.m */; };
+		8A8C99C21D43386B00938378 /* PopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A8C99C11D43386B00938378 /* PopUpView.m */; };
 		8A9146F41D409CD500BCC924 /* XTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9146F31D409CD500BCC924 /* XTabBar.m */; };
 		8A9146FD1D40B45F00BCC924 /* AboroadService.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9146FC1D40B45F00BCC924 /* AboroadService.m */; };
 		8A9147001D40B47800BCC924 /* FinanceProducts.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9146FF1D40B47800BCC924 /* FinanceProducts.m */; };
@@ -245,6 +247,10 @@
 		8A5F2B7B1D424E0D0051B016 /* PolicyAdviceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PolicyAdviceView.m; sourceTree = "<group>"; };
 		8A5F2B7D1D424E690051B016 /* policyAdviceCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = policyAdviceCell.h; sourceTree = "<group>"; };
 		8A5F2B7E1D424E690051B016 /* policyAdviceCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = policyAdviceCell.m; sourceTree = "<group>"; };
+		8A8C99BD1D4313CB00938378 /* BaseFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseFrame.h; sourceTree = "<group>"; };
+		8A8C99BE1D4313CB00938378 /* BaseFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseFrame.m; sourceTree = "<group>"; };
+		8A8C99C01D43386B00938378 /* PopUpView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopUpView.h; sourceTree = "<group>"; };
+		8A8C99C11D43386B00938378 /* PopUpView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopUpView.m; sourceTree = "<group>"; };
 		8A9146F21D409CD500BCC924 /* XTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XTabBar.h; sourceTree = "<group>"; };
 		8A9146F31D409CD500BCC924 /* XTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XTabBar.m; sourceTree = "<group>"; };
 		8A9146F51D40A67100BCC924 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -545,6 +551,17 @@
 			path = PolicyAdviceList;
 			sourceTree = "<group>";
 		};
+		8A8C99BC1D4313B600938378 /* BaseFrame */ = {
+			isa = PBXGroup;
+			children = (
+				8A8C99BD1D4313CB00938378 /* BaseFrame.h */,
+				8A8C99BE1D4313CB00938378 /* BaseFrame.m */,
+				8A8C99C01D43386B00938378 /* PopUpView.h */,
+				8A8C99C11D43386B00938378 /* PopUpView.m */,
+			);
+			path = BaseFrame;
+			sourceTree = "<group>";
+		};
 		8A9146F61D40B43D00BCC924 /* AbroadService */ = {
 			isa = PBXGroup;
 			children = (
@@ -603,6 +620,7 @@
 		8AAE56A11D40676B006F0AC8 /* Function */ = {
 			isa = PBXGroup;
 			children = (
+				8A8C99BC1D4313B600938378 /* BaseFrame */,
 				8A91470A1D40B58B00BCC924 /* RootViewController */,
 				8A9146F61D40B43D00BCC924 /* AbroadService */,
 				8A9146F71D40B43D00BCC924 /* FinanceProducts */,
@@ -1176,7 +1194,9 @@
 				8A5F2B7C1D424E0D0051B016 /* PolicyAdviceView.m in Sources */,
 				8A9147001D40B47800BCC924 /* FinanceProducts.m in Sources */,
 				8AAE584C1D406B5C006F0AC8 /* XStringUtils.m in Sources */,
+				8A8C99C21D43386B00938378 /* PopUpView.m in Sources */,
 				8A5765E01D3F72C100FF4D6D /* ViewController.m in Sources */,
+				8A8C99BF1D4313CB00938378 /* BaseFrame.m in Sources */,
 				8A9147091D40B4A500BCC924 /* ServiceProgress.m in Sources */,
 				8A5F2B7F1D424E690051B016 /* policyAdviceCell.m in Sources */,
 				8A91470D1D40B58B00BCC924 /* RootViewController.m in Sources */,

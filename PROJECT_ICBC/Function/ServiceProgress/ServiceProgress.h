@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseFrame.h"
 
-@interface ServiceProgress : UIView
+@interface ServiceProgress : BaseFrame
 
 @end

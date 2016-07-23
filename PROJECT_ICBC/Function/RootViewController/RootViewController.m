@@ -7,6 +7,7 @@
 //
 
 #import "RootViewController.h"
+#import "BaseFrame.h"
 #import "MainPage.h"
 #import "AboroadService.h"
 #import "FinanceProducts.h"
@@ -78,7 +79,7 @@
     if (_headImage == nil) {
         _headImage = [[UIImageView alloc]init];
         _headImage.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:@"头像_11" ofType:@"png" inDirectory:@""]];
-
+        
     }
     return _headImage;
 }
@@ -103,6 +104,7 @@
 {
     if (_mainPage == nil) {
         _mainPage = [[MainPage alloc]init];
+        _mainPage.backgroundColor = [UIColor yellowColor];
         _mainPage.tag = 300;
     }
     return _mainPage;
@@ -142,7 +144,7 @@
 -(UIView *)measureView
 {
     if (_measureView == nil) {
-        _measureView = [[UIView alloc]init];
+        _measureView = [[UIView alloc]initWithFrame:CGRectMake(81.5, 80, 942.5, 688)];
         _measureView.backgroundColor = [UIColor whiteColor];
     }
     return _measureView;
@@ -217,44 +219,44 @@
         self.currentSelectedButton = self.buttonArray[0];
         ((UIButton*)self.buttonArray[0]).enabled = NO;
         
-        [self.view addSubview:self.mainPage];
-        [self.mainPage mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.navigationBackgroudView.mas_right);
-            make.top.equalTo(self.headerView.mas_bottom);
-            make.right.equalTo(self.view);
-            make.bottom.equalTo(self.view);
-        }];
-        
         
         [self.view addSubview: self.measureView];
-        [self.measureView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.and.right.equalTo(self.mainPage);
-            make.bottom.equalTo(self.mainPage);
-            make.height.equalTo(self.mainPage);
+//        [self.measureView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.left.and.right.equalTo(self.mainPage);
+//            make.bottom.equalTo(self.mainPage);
+//            make.height.equalTo(self.mainPage);
+//        }];
+        
+        [self.measureView addSubview:self.mainPage];
+        [self.mainPage mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.edges.mas_equalTo(UIEdgeInsetsZero);
+            make.left.and.right.and.top.and.bottom.equalTo(self.measureView);
         }];
         
-        [self.view addSubview:self.aboroadServce];
+        
+        
+        [self.measureView addSubview:self.aboroadServce];
         [self.aboroadServce mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.and.right.equalTo(self.mainPage);
             make.bottom.equalTo(self.mainPage.mas_top);
             make.height.equalTo(self.mainPage);
         }];
         
-        [self.view addSubview:self.financeProducts];
+        [self.measureView addSubview:self.financeProducts];
         [self.financeProducts mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.and.right.equalTo(self.mainPage);
             make.bottom.equalTo(self.mainPage.mas_top);
             make.height.equalTo(self.mainPage);
         }];
         
-        [self.view addSubview:self.pickedList];
+        [self.measureView addSubview:self.pickedList];
         [self.pickedList mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.and.right.equalTo(self.mainPage);
             make.bottom.equalTo(self.mainPage.mas_top);
             make.height.equalTo(self.mainPage);
         }];
         
-        [self.view addSubview:self.serviceProgress];
+        [self.measureView addSubview:self.serviceProgress];
         [self.serviceProgress mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.and.right.equalTo(self.mainPage);
             make.bottom.equalTo(self.mainPage.mas_top);
@@ -262,11 +264,11 @@
         }];
         [self.view bringSubviewToFront:self.headerShadowView];
         [self.view bringSubviewToFront:self.headerView];
-
+        
         for (UIButton * abutton in self.buttonArray) {
             [self.view bringSubviewToFront:abutton];
         }
-
+        
         self.currentShowView = self.mainPage;
         [self.viewArray addObject:self.mainPage];
         [self.viewArray addObject:self.aboroadServce];

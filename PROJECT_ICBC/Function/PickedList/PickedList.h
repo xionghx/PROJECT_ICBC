@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseFrame.h"
 
-@interface PickedList : UIView
+@interface PickedList : BaseFrame
 
 @end

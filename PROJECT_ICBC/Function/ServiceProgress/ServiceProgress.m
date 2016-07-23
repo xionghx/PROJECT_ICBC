@@ -13,6 +13,7 @@
 {
     self = [super init];
     if (self) {
+        self.titleLabel.text = @"ServiceProgress";
         self.backgroundColor = [UIColor lightGrayColor];
     }
     return self;

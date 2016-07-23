@@ -17,6 +17,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         [self setupUI];
+        self.backgroundColor = [UIColor clearColor];
     }
     return self;
 }
@@ -34,13 +35,14 @@
 #pragma mark---------method
 -(void)setupValueWithData:(NSDictionary *)data
 {
-    
+    self.contentLabel.text = data[@"title"];
 }
 -(void)setupUI
 {
-    [self.backgroundView addSubview:self.backgroundImageView];
+    [self.contentView addSubview:self.backgroundImageView];
     [self.backgroundImageView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.and.top.and.right.and.bottom.equalTo(self.backgroundView);
+        
+        make.left.and.top.and.right.and.bottom.equalTo(self);
     }];
     [self.contentView addSubview:self.serialNumberLabel];
     [self.serialNumberLabel mas_makeConstraints:^(MASConstraintMaker *make) {
