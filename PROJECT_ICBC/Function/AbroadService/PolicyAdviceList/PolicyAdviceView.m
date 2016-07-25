@@ -135,7 +135,10 @@
 //    view.backgroundColor = [UIColor blackColor];
 //    view.alpha = 0.5;
 //    [self addSubview:view];
-    [[[PopUpView alloc]initWithFrame:[UIScreen mainScreen].bounds] popupView];
+    PopUpView * aView =[[PopUpView alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    aView.title = self.dataSource[indexPath.row][@"title"];
+    
+    [aView popup];
 //    
 //    [PopUpView popupView:[[PopUpView alloc]initWithFrame:[UIScreen mainScreen].bounds]];
 //    PopUpView *view = [[PopUpView alloc]initWithFrame:[UIScreen mainScreen].bounds];

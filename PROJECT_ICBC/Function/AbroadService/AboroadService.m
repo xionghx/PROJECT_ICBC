@@ -23,11 +23,10 @@
 
 @implementation AboroadService
 
-- (instancetype)init
+- (instancetype)initWithFrame:(CGRect)frame
 {
-    self = [super init];
+    self = [super initWithFrame:frame];
     if (self) {
-//        self.backgroundColor = [UIColor redColor];
         self.buttonArray = @[].mutableCopy;
         self.titleLabel.text = @"AboroadService";
         [self loadDataSource];
@@ -100,9 +99,6 @@
     [self addSubview:self.policyAdviceView];
     [self.policyAdviceView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
-////        make.left.and.top.and.bottom.and.right.equalTo(self);
-//        make.size.equalTo(self);
-//        make.center.equalTo(self);
     }];
     
     [self addSubview:self.buttonView];

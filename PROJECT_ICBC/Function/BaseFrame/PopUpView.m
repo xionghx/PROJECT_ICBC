@@ -26,62 +26,57 @@
     return self;
 }
 
--(void)popupView
-{
-    [self.cancelButton addTarget:self action:@selector(disapperView:) forControlEvents:UIControlEventTouchUpInside];
-
-    [[UIApplication sharedApplication].keyWindow.rootViewController.view addSubview:self];
-    for (MASConstraint * aMasconstraint in self.MASConstraints) {
-        [aMasconstraint uninstall];
-    }
-    [self.backgroundView mas_updateConstraints:^(MASConstraintMaker *make) {
-//        make.center.equalTo(view.backgroudShadowView);
-        make.size.mas_equalTo(CGSizeMake(1757/2, 1133/2));
-//        make.center.mas_equalTo(CGPointMake(1757/4, 1133/4));
-        make.center.mas_equalTo(self.backgroudShadowView);
-    }];
-    [self setNeedsLayout];
-
-
-    [UIView animateWithDuration:2 animations:^{
-        self.backgroudShadowView.alpha = 0.5;
-//        view.backgroundView.bounds = CGRectMake(0, 0, 1757/2, 1133/2);
-//        [self.backgroundView mas_updateConstraints:^(MASConstraintMaker *make) {
-//            make.center.equalTo(self.backgroudShadowView);
-////            make.size.mas_equalTo(CGSizeMake(1757/2, 1133/2));
-//        }];
-
-        [self layoutIfNeeded];
-
-    } completion:^(BOOL finished) {
-        
-        
-    }];
-
-
-    
-}
-
--(void)disapperView:(UIView *)view
-{
-    [self removeFromSuperview];
-}
-
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-
-}
-
-
 #pragma mark ------------method
+
+-(void)popup
+{
+    
+    [self.cancelButton addTarget:self action:@selector(disapper) forControlEvents:UIControlEventTouchUpInside];
+    [self layoutIfNeeded];
+    UIEdgeInsets insets =  UIEdgeInsetsMake(147/2 , 176/2, 147/2, 176/2);
+    
+    for (MASConstraint * aMasconstraint in self.MASConstraints) {
+        aMasconstraint.insets = insets;
+    }
+    [self setNeedsLayout];
+    
+    [[UIApplication sharedApplication].keyWindow.rootViewController.view addSubview:self];
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        self.backgroudShadowView.alpha = 0.5;
+        [self layoutIfNeeded];
+        
+    } completion:nil];
+}
+
+
+-(void)disapper
+{
+    [self layoutIfNeeded];
+    UIEdgeInsets insets = UIEdgeInsetsMake(0.5 * self.frame.size.height-100, 0.5 * self.frame.size.width-100, 0.5 * self.frame.size.height-100, 0.5 * self.frame.size.width-100);
+    for (MASConstraint * aMasconstraint in self.MASConstraints) {
+        aMasconstraint.insets = insets;
+    }
+    [self setNeedsLayout];
+    
+    [[UIApplication sharedApplication].keyWindow.rootViewController.view addSubview:self];
+    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        self.backgroudShadowView.alpha = 0;
+        [self layoutIfNeeded];
+        
+    } completion:^(BOOL finished) {
+        [self removeFromSuperview];
+        
+    }];
+}
+
+
 -(void)setupUI
 {
     [self addSubview:self.backgroudShadowView];
     [self addSubview:self.backgroundView];
-    
+    UIEdgeInsets insets = UIEdgeInsetsMake(0.5 * self.frame.size.height-100, 0.5 * self.frame.size.width-100, 0.5 * self.frame.size.height-100, 0.5 * self.frame.size.width-100);
     [self.backgroundView mas_makeConstraints:^(MASConstraintMaker *make) {
-        [self.MASConstraints addObject:make.size.mas_equalTo(CGSizeMake(100, 100))];
-        [self.MASConstraints addObject:make.center.equalTo(self.backgroudShadowView)];
-
+        [self.MASConstraints addObject:make.edges.mas_equalTo(self.backgroudShadowView).insets(insets)];
     }];
     [self addSubview:self.cancelButton];
     [self.cancelButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -93,8 +88,17 @@
 #pragma mark------setter
 -(void)setTitle:(NSString *)title
 {
-    self.titleLabel.text = title;
-    self.title = title;
+    
+    
+    _title = title;
+    UILabel *aLabel = [[UILabel alloc]init];
+    aLabel.text = title;
+    aLabel.textColor = [UIColor blackColor];
+    [self addSubview:aLabel];
+    [aLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(self);
+        make.top.equalTo(self.backgroundView).offset(40);
+    }];
 }
 #pragma mark-------getter
 
@@ -107,13 +111,6 @@
         _backgroudShadowView.userInteractionEnabled = YES;
     }
     return _backgroudShadowView;
-}
--(UILabel *)titleLabel
-{
-    if (_titleLabel == nil) {
-        _titleLabel = [[UILabel alloc]init];
-    }
-    return _titleLabel;
 }
 -(UIView *)backgroundView
 {
