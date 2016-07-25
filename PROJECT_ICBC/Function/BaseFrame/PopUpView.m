@@ -8,7 +8,7 @@
 
 #import "PopUpView.h"
 @interface PopUpView ()
-@property (nonatomic, strong) MASConstraint *backgroundViewSize;
+@property (nonatomic, strong) NSMutableArray *MASConstraints;
 @property (nonatomic, strong) PopUpView * showingView;
 
 @end
@@ -19,6 +19,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        _MASConstraints = [NSMutableArray array];
         [self setupUI];
         
     }
@@ -30,23 +31,27 @@
     [self.cancelButton addTarget:self action:@selector(disapperView:) forControlEvents:UIControlEventTouchUpInside];
 
     [[UIApplication sharedApplication].keyWindow.rootViewController.view addSubview:self];
-    [self.backgroundViewSize uninstall];
+    for (MASConstraint * aMasconstraint in self.MASConstraints) {
+        [aMasconstraint uninstall];
+    }
     [self.backgroundView mas_updateConstraints:^(MASConstraintMaker *make) {
 //        make.center.equalTo(view.backgroudShadowView);
         make.size.mas_equalTo(CGSizeMake(1757/2, 1133/2));
+//        make.center.mas_equalTo(CGPointMake(1757/4, 1133/4));
+        make.center.mas_equalTo(self.backgroudShadowView);
     }];
-    [self.backgroundView setNeedsLayout];
+    [self setNeedsLayout];
 
 
     [UIView animateWithDuration:2 animations:^{
-        self.backgroudShadowView.alpha = 1;
+        self.backgroudShadowView.alpha = 0.5;
 //        view.backgroundView.bounds = CGRectMake(0, 0, 1757/2, 1133/2);
 //        [self.backgroundView mas_updateConstraints:^(MASConstraintMaker *make) {
 //            make.center.equalTo(self.backgroudShadowView);
 ////            make.size.mas_equalTo(CGSizeMake(1757/2, 1133/2));
 //        }];
 
-        [self.backgroundView layoutIfNeeded];
+        [self layoutIfNeeded];
 
     } completion:^(BOOL finished) {
         
@@ -74,10 +79,9 @@
     [self addSubview:self.backgroundView];
     
     [self.backgroundView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.equalTo(self);
-//        make.size.mas_equalTo(CGSizeMake(1757/2, 1133/2));
+        [self.MASConstraints addObject:make.size.mas_equalTo(CGSizeMake(100, 100))];
+        [self.MASConstraints addObject:make.center.equalTo(self.backgroudShadowView)];
 
-        self.backgroundViewSize = make.size.mas_equalTo(CGSizeMake(100, 100));
     }];
     [self addSubview:self.cancelButton];
     [self.cancelButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -97,9 +101,9 @@
 -(UIView *)backgroudShadowView
 {
     if (_backgroudShadowView == nil) {
-        _backgroudShadowView = [[UIView alloc]initWithFrame:[UIApplication sharedApplication].keyWindow.rootViewController.view.bounds];
+        _backgroudShadowView = [[UIView alloc]initWithFrame:self.bounds];
         _backgroudShadowView.backgroundColor = [UIColor blackColor];
-        _backgroudShadowView.alpha = 0.5;
+        _backgroudShadowView.alpha = 0;
         _backgroudShadowView.userInteractionEnabled = YES;
     }
     return _backgroudShadowView;
