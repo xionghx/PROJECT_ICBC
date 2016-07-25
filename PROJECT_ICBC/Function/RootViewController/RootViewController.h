@@ -9,6 +9,10 @@
 #import <UIKit/UIKit.h>
 @class  LoginViewController;
 
-@interface RootViewController : UIViewController
+@protocol RootViewDelegate <NSObject>
 
+@end
+
+
+@interface RootViewController : UIViewController
 @end

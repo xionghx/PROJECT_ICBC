@@ -7,8 +7,13 @@
 //
 
 #import "AboroadService.h"
-#import "NetRequest.h"
+#import "MealsListView.h"
 #import "PolicyAdviceView.h"
+#import "ChooseByYourselfModelListView.h"
+
+
+
+#import "NetRequest.h"
 
 @interface AboroadService ()
 @property(nonatomic ,strong)UIView *buttonView;
@@ -17,7 +22,13 @@
 @property(nonatomic ,strong)UIButton * policyAdviceButton;
 @property(nonatomic ,strong)UIButton * chooseByYourselfModeButton;
 @property(nonatomic ,strong)NSMutableArray *buttonArray;
+@property(nonatomic ,strong)NSMutableArray *viewsArray;
+
+
+@property(nonatomic ,strong)UIView *rootView;
 @property(nonatomic ,strong)PolicyAdviceView *policyAdviceView;
+@property(nonatomic ,strong)MealsListView *mealslistView;
+@property(nonatomic ,strong)ChooseByYourselfModelListView *chooseByYourselfModelListView;
 
 @end
 
@@ -28,6 +39,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.buttonArray = @[].mutableCopy;
+        self.viewsArray = [NSMutableArray array];
         self.titleLabel.text = @"AboroadService";
         [self loadDataSource];
         [self setupUI];
@@ -84,19 +96,48 @@
     }
     return _chooseByYourselfModeButton;
 }
+-(UIView *)rootView
+{
+    if (_rootView == nil) {
+        _rootView = [[UIView alloc]initWithFrame:CGRectZero];
+    }
+    return  _rootView;
+}
+
 -(PolicyAdviceView *)policyAdviceView
 {
     if (_policyAdviceView == nil) {
         _policyAdviceView = [[PolicyAdviceView alloc]initWithFrame:CGRectZero];
-//        _policyAdviceView.backgroundColor = [UIColor greenColor];
     }
     return _policyAdviceView;
+}
+
+-(MealsListView *)mealslistView
+{
+    if (_mealslistView == nil) {
+        _mealslistView = [[MealsListView alloc]initWithFrame:CGRectZero];
+    }
+    return _mealslistView;
+}
+-(ChooseByYourselfModelListView *)chooseByYourselfModelListView
+{
+    if (_chooseByYourselfModelListView == nil) {
+        _chooseByYourselfModelListView = [[ChooseByYourselfModelListView alloc]initWithFrame:CGRectZero];
+        _chooseByYourselfModelListView.backgroundColor = [UIColor grayColor];
+
+    }
+    return _chooseByYourselfModelListView;
 }
 
 #pragma mark ------------method
 -(void)setupUI
 {
-    [self addSubview:self.policyAdviceView];
+    [self addSubview:self.rootView];
+    [self.rootView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
+
+    }];
+    [self.rootView addSubview:self.policyAdviceView];
     [self.policyAdviceView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
@@ -139,16 +180,30 @@
         make.size.equalTo(self.mealsListButton);
         make.left.equalTo(self.mealsListButton.mas_right);
     }];
+    
+    [self.viewsArray addObject:self.mealslistView];
+    [self.viewsArray addObject:self.policyAdviceView];
+    [self.viewsArray addObject:self.chooseByYourselfModelListView];
 }
 -(void)buttonTaped:(UIButton *)sender
 {
+    NSInteger index  = 0;
     for (UIButton *aButton in self.buttonArray) {
         if (aButton == sender) {
             aButton.enabled = NO;
+            [self.rootView addSubview:self.viewsArray[index]];
+            [self.viewsArray[index] mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
+            }];
+
         }else{
             aButton.enabled = YES;
+            [self.viewsArray[index] removeFromSuperview];
         }
+        index ++;
     }
+    
+    
     
     
     

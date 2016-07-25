@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8A10146B1D4617D20048193D /* MealsListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A10146A1D4617D20048193D /* MealsListView.m */; };
+		8A10146E1D46188B0048193D /* MealistCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A10146D1D46188B0048193D /* MealistCollectionViewLayout.m */; };
+		8A1014711D46191D0048193D /* MealistCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1014701D46191D0048193D /* MealistCollectionViewCell.m */; };
+		8A1014751D4629B70048193D /* ChooseByYourselfModeListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A1014741D4629B70048193D /* ChooseByYourselfModeListView.m */; };
 		8A5765DA1D3F72C100FF4D6D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5765D91D3F72C100FF4D6D /* main.m */; };
 		8A5765DD1D3F72C100FF4D6D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5765DC1D3F72C100FF4D6D /* AppDelegate.m */; };
 		8A5765E01D3F72C100FF4D6D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A5765DF1D3F72C100FF4D6D /* ViewController.m */; };
@@ -232,6 +236,14 @@
 /* Begin PBXFileReference section */
 		5A3B4FC65C5184A8B2C278D8 /* Pods-PROJECT_ICBC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PROJECT_ICBC.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PROJECT_ICBC/Pods-PROJECT_ICBC.debug.xcconfig"; sourceTree = "<group>"; };
 		6592A04EF04383D6377B39CC /* libPods-PROJECT_ICBC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PROJECT_ICBC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8A1014691D4617D20048193D /* MealsListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealsListView.h; sourceTree = "<group>"; };
+		8A10146A1D4617D20048193D /* MealsListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealsListView.m; sourceTree = "<group>"; };
+		8A10146C1D46188B0048193D /* MealistCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealistCollectionViewLayout.h; sourceTree = "<group>"; };
+		8A10146D1D46188B0048193D /* MealistCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealistCollectionViewLayout.m; sourceTree = "<group>"; };
+		8A10146F1D46191D0048193D /* MealistCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MealistCollectionViewCell.h; sourceTree = "<group>"; };
+		8A1014701D46191D0048193D /* MealistCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MealistCollectionViewCell.m; sourceTree = "<group>"; };
+		8A1014731D4629B70048193D /* ChooseByYourselfModelListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseByYourselfModelListView.h; sourceTree = "<group>"; };
+		8A1014741D4629B70048193D /* ChooseByYourselfModeListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseByYourselfModeListView.m; sourceTree = "<group>"; };
 		8A5765D51D3F72C100FF4D6D /* PROJECT_ICBC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PROJECT_ICBC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A5765D91D3F72C100FF4D6D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8A5765DB1D3F72C100FF4D6D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -494,6 +506,28 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		8A1014681D4617BB0048193D /* MealsList */ = {
+			isa = PBXGroup;
+			children = (
+				8A1014691D4617D20048193D /* MealsListView.h */,
+				8A10146A1D4617D20048193D /* MealsListView.m */,
+				8A10146C1D46188B0048193D /* MealistCollectionViewLayout.h */,
+				8A10146D1D46188B0048193D /* MealistCollectionViewLayout.m */,
+				8A10146F1D46191D0048193D /* MealistCollectionViewCell.h */,
+				8A1014701D46191D0048193D /* MealistCollectionViewCell.m */,
+			);
+			path = MealsList;
+			sourceTree = "<group>";
+		};
+		8A1014721D4629A40048193D /* ChooseByYourselfModeListView */ = {
+			isa = PBXGroup;
+			children = (
+				8A1014731D4629B70048193D /* ChooseByYourselfModelListView.h */,
+				8A1014741D4629B70048193D /* ChooseByYourselfModeListView.m */,
+			);
+			path = ChooseByYourselfModeListView;
+			sourceTree = "<group>";
+		};
 		8A5765CC1D3F72C100FF4D6D = {
 			isa = PBXGroup;
 			children = (
@@ -565,9 +599,11 @@
 		8A9146F61D40B43D00BCC924 /* AbroadService */ = {
 			isa = PBXGroup;
 			children = (
-				8A5F2B791D424DE30051B016 /* PolicyAdviceList */,
 				8A9146FB1D40B45F00BCC924 /* AboroadService.h */,
 				8A9146FC1D40B45F00BCC924 /* AboroadService.m */,
+				8A1014721D4629A40048193D /* ChooseByYourselfModeListView */,
+				8A1014681D4617BB0048193D /* MealsList */,
+				8A5F2B791D424DE30051B016 /* PolicyAdviceList */,
 			);
 			path = AbroadService;
 			sourceTree = "<group>";
@@ -1187,6 +1223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A10146B1D4617D20048193D /* MealsListView.m in Sources */,
 				8AAE584F1D406BD3006F0AC8 /* LoginViewController.m in Sources */,
 				8A5765E61D3F72C100FF4D6D /* PROJECT_ICBC.xcdatamodeld in Sources */,
 				8AAE584B1D406B5C006F0AC8 /* NetRequest.m in Sources */,
@@ -1202,9 +1239,12 @@
 				8A91470D1D40B58B00BCC924 /* RootViewController.m in Sources */,
 				8A5765DD1D3F72C100FF4D6D /* AppDelegate.m in Sources */,
 				8A9146F41D409CD500BCC924 /* XTabBar.m in Sources */,
+				8A1014751D4629B70048193D /* ChooseByYourselfModeListView.m in Sources */,
+				8A10146E1D46188B0048193D /* MealistCollectionViewLayout.m in Sources */,
 				8A9146FD1D40B45F00BCC924 /* AboroadService.m in Sources */,
 				8A5765DA1D3F72C100FF4D6D /* main.m in Sources */,
 				8A9147061D40B49200BCC924 /* PickedList.m in Sources */,
+				8A1014711D46191D0048193D /* MealistCollectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
