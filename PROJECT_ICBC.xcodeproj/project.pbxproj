@@ -29,6 +29,7 @@
 		8A9147061D40B49200BCC924 /* PickedList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9147051D40B49200BCC924 /* PickedList.m */; };
 		8A9147091D40B4A500BCC924 /* ServiceProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A9147081D40B4A500BCC924 /* ServiceProgress.m */; };
 		8A91470D1D40B58B00BCC924 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A91470C1D40B58B00BCC924 /* RootViewController.m */; };
+		8A994AA81D474FBB00117F5D /* ChooseByYourselfModelCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8A994AA71D474FBB00117F5D /* ChooseByYourselfModelCollectionViewCell.m */; };
 		8AAE57801D4069F3006F0AC8 /* +_10.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AAE56B31D4069F3006F0AC8 /* +_10.png */; };
 		8AAE57811D4069F3006F0AC8 /* -_46.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AAE56B41D4069F3006F0AC8 /* -_46.png */; };
 		8AAE57821D4069F3006F0AC8 /* 1_08.png in Resources */ = {isa = PBXBuildFile; fileRef = 8AAE56B51D4069F3006F0AC8 /* 1_08.png */; };
@@ -278,6 +279,8 @@
 		8A9147081D40B4A500BCC924 /* ServiceProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceProgress.m; sourceTree = "<group>"; };
 		8A91470B1D40B58B00BCC924 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		8A91470C1D40B58B00BCC924 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		8A994AA61D474FBB00117F5D /* ChooseByYourselfModelCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseByYourselfModelCollectionViewCell.h; sourceTree = "<group>"; };
+		8A994AA71D474FBB00117F5D /* ChooseByYourselfModelCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseByYourselfModelCollectionViewCell.m; sourceTree = "<group>"; };
 		8AAE56B31D4069F3006F0AC8 /* +_10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "+_10.png"; sourceTree = "<group>"; };
 		8AAE56B41D4069F3006F0AC8 /* -_46.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "-_46.png"; sourceTree = "<group>"; };
 		8AAE56B51D4069F3006F0AC8 /* 1_08.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1_08.png; sourceTree = "<group>"; };
@@ -524,6 +527,8 @@
 			children = (
 				8A1014731D4629B70048193D /* ChooseByYourselfModelListView.h */,
 				8A1014741D4629B70048193D /* ChooseByYourselfModeListView.m */,
+				8A994AA61D474FBB00117F5D /* ChooseByYourselfModelCollectionViewCell.h */,
+				8A994AA71D474FBB00117F5D /* ChooseByYourselfModelCollectionViewCell.m */,
 			);
 			path = ChooseByYourselfModeListView;
 			sourceTree = "<group>";
@@ -1227,6 +1232,7 @@
 				8AAE584F1D406BD3006F0AC8 /* LoginViewController.m in Sources */,
 				8A5765E61D3F72C100FF4D6D /* PROJECT_ICBC.xcdatamodeld in Sources */,
 				8AAE584B1D406B5C006F0AC8 /* NetRequest.m in Sources */,
+				8A994AA81D474FBB00117F5D /* ChooseByYourselfModelCollectionViewCell.m in Sources */,
 				8A9147031D40B48400BCC924 /* MainPage.m in Sources */,
 				8A5F2B7C1D424E0D0051B016 /* PolicyAdviceView.m in Sources */,
 				8A9147001D40B47800BCC924 /* FinanceProducts.m in Sources */,

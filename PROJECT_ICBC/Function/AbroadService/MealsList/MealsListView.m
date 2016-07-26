@@ -9,14 +9,18 @@
 #import "MealsListView.h"
 #import "MealistCollectionViewLayout.h"
 #import "MealistCollectionViewCell.h"
+#import "NetRequest.h"
 
 static NSString * REUSE_MARK = @"cell_reuse";
 
-@interface MealsListView ()<UICollectionViewDelegate,UICollectionViewDataSource,AttributesContenOffset>
+@interface MealsListView ()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property(nonatomic ,strong)UICollectionView *mealsListColletionView;
+@property(nonatomic ,strong)UIImageView *backgroudView;
 @property(nonatomic ,strong)MealistCollectionViewLayout *mealistCollectionViewLayout;
 
-@property(nonatomic ,assign)CGPoint contentofset;
+@property(nonatomic ,strong)NSMutableArray *dataSource;
+
+//@property(nonatomic ,assign)CGPoint contentofset;
 
 @end
 
@@ -26,7 +30,10 @@ static NSString * REUSE_MARK = @"cell_reuse";
 {
     self = [super initWithFrame:frame];
     if (self) {
+        self.dataSource = [NSMutableArray array];
+        [self loadDataSource];
         [self setupUI];
+        
     }
     return self;
 }
@@ -34,20 +41,43 @@ static NSString * REUSE_MARK = @"cell_reuse";
 #pragma mark ----------method
 -(void)setupUI
 {
+    [self addSubview:self.backgroudView];
+    [self.backgroudView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsMake(-5, -5, -5, -5));
+    }];
     [self addSubview:self.mealsListColletionView];
-    [NSString stringWithFormat:@"%@",[NSString class]];
     [self.mealsListColletionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsZero);
     }];
 }
+-(void)loadDataSource
+{
+    [NetRequest getMealsListWithPageSize:@"1" andPageNumb:@"10" andUserId:@"22" completion:^(id responseObject, NSError *error) {
+        if (error) {
+            NSLog(@"%@",error);
+        }else{
+            [self.dataSource addObjectsFromArray:responseObject[@"content"]];
+            [self.mealsListColletionView reloadData];
+        }
+    } ];
+}
 #pragma mark -----------getter
+-(UIImageView *)backgroudView
+{
+    if (_backgroudView == nil) {
+        _backgroudView = [[UIImageView alloc]init];
+        _backgroudView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"背景" ofType:@"png" inDirectory:@""]];
+    }
+    return _backgroudView;
+}
 -(UICollectionView *)mealsListColletionView
 {
     if (_mealsListColletionView == nil) {
         _mealsListColletionView = [[UICollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:self.mealistCollectionViewLayout];
+
         _mealsListColletionView.dataSource = self;
         _mealsListColletionView.delegate = self;
-//        _mealsListColletionView.backgroundColor = [UIColor redColor];
+        _mealsListColletionView.backgroundColor = [UIColor clearColor];
         [_mealsListColletionView registerClass:[MealistCollectionViewCell class] forCellWithReuseIdentifier:REUSE_MARK];
     }
     return _mealsListColletionView;
@@ -56,33 +86,24 @@ static NSString * REUSE_MARK = @"cell_reuse";
 {
     if (_mealistCollectionViewLayout == nil) {
         _mealistCollectionViewLayout = [[MealistCollectionViewLayout alloc]init];
-        _mealistCollectionViewLayout.delegate = self;
     }
     return _mealistCollectionViewLayout;
 }
 #pragma mark-----------------<UICollectionViewDelegate,UICollectionViewDataSource>
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 10;
+    return self.dataSource.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     MealistCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:REUSE_MARK forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor redColor];
-//    cell.bounds = CGRectMake(0, 0, 100, 100);
+    [cell setupValueWith:self.dataSource[indexPath.row]];
     return cell;
 }
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    self.contentofset = scrollView.contentOffset;
     [self.mealsListColletionView reloadData];
-}
-
--(CGPoint )attributesContenOffset;
-{
-    return self.contentofset;
-
 }
 
 @end

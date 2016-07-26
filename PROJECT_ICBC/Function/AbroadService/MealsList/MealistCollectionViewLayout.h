@@ -7,12 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-@protocol AttributesContenOffset <NSObject>
 
--(CGPoint )attributesContenOffset;
-
-@end
-
-@interface MealistCollectionViewLayout : UICollectionViewLayout
-@property(nonatomic ,assign)id<AttributesContenOffset> delegate;
+@interface MealistCollectionViewLayout : UICollectionViewFlowLayout
 @end

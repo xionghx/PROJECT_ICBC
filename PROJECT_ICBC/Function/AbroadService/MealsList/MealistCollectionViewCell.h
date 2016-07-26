@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MealistCollectionViewCell : UICollectionViewCell
-
+-(void)setupValueWith:(NSDictionary *)data;
 @end

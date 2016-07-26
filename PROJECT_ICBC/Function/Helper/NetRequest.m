@@ -95,9 +95,14 @@
                         andPageNumb:(NSString *)pageNum
                          currencyId:(NSString *)currencyId
                           consignId:(NSString *)consignId
+                          startTime:(NSString *)startTime
+                            endTime:(NSString *)endTime
+                         gainsStyle:(NSString *)gainsStyle
+                           keywords:(NSString *)keywords
+                             userId:(NSString *)userId
                          completion:(void(^)(id responseObject,NSError *error))completionBlock
 {
-    NSString * parameStr = [XStringUtils jsonStringWithParameters:@{@"pageSize":pageSize,@"pageNum":pageNum,@"currencyId":currencyId,@"consignId":consignId}];
+    NSString * parameStr = [XStringUtils jsonStringWithParameters:@{@"pageSize":pageSize,@"pageNum":pageNum,@"currencyId":currencyId,@"consignId":consignId,@"startTime":startTime,@"endTime":endTime,@"gainsStyle":gainsStyle,@"keywords":keywords,@"userId":userId}];
     [self POST:[NSString stringWithFormat:@"%@%@",POST_URL,@"/appFinancial/getFinancialList"] parameters:[self getParametersByParams:parameStr] sucess:^(id responseObject) {
         completionBlock(responseObject,nil);
     } failure:^(NSError *error) {

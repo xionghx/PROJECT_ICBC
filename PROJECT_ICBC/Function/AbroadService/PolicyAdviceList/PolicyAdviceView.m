@@ -14,6 +14,7 @@
 #define REUSE_MARK  @"cell_reuse"
 
 @interface PolicyAdviceView ()<UITableViewDelegate,UITableViewDataSource>
+@property(nonatomic ,strong)UIImageView *backgroudView;
 @property(nonatomic ,strong)UITableView *policyAdviceListTableView;
 @property(nonatomic ,strong)UIImageView *policyAdviceListTableUpShadowView;
 @property(nonatomic ,strong)UIImageView *policyAdviceListTableDownShadowView;
@@ -30,7 +31,7 @@
         self.dataSource = @[].mutableCopy;
         [self loadDataSource];
         [self setupUI];
-        self.clipsToBounds = YES;
+//        self.clipsToBounds = YES;
  
     }
     return self;
@@ -38,16 +39,21 @@
 
 
 #pragma mark----------getter
+-(UIImageView *)backgroudView
+{
+    if (_backgroudView == nil) {
+        _backgroudView = [[UIImageView alloc]init];
+        _backgroudView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"背景" ofType:@"png" inDirectory:@""]];
+    }
+    return _backgroudView;
+}
 -(UITableView *)policyAdviceListTableView
 {
     if (_policyAdviceListTableView == nil) {
-//        _policyAdviceListTableView = [[UITableView alloc]initWithFrame:CGRectMake(100,100 ,800, 400) style:UITableViewStylePlain];
         _policyAdviceListTableView = [[UITableView alloc]initWithFrame:CGRectZero style:UITableViewStylePlain];
-
         [_policyAdviceListTableView registerClass:[policyAdviceCell class] forCellReuseIdentifier:REUSE_MARK];
         _policyAdviceListTableView.delegate = self;
         _policyAdviceListTableView.dataSource = self;
-//        _policyAdviceListTableView.backgroundColor = [UIColor greenColor];
         _policyAdviceListTableView.rowHeight = 57;
     }
     return _policyAdviceListTableView;
@@ -69,6 +75,10 @@
 #pragma mark----method
 -(void)setupUI
 {
+    [self addSubview:self.backgroudView];
+    [self.backgroudView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsMake(-5, -5, -5, -5));
+    }];
     [self addSubview:self.policyAdviceListTableView];
     [_policyAdviceListTableView mas_updateConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self).offset(160);

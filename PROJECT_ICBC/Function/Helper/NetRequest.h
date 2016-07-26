@@ -44,6 +44,11 @@
                         andPageNumb:(NSString *)pageNum
                          currencyId:(NSString *)currencyId
                           consignId:(NSString *)consignId
+                          startTime:(NSString *)startTime
+                            endTime:(NSString *)endTime
+                         gainsStyle:(NSString *)gainsStyle
+                           keywords:(NSString *)keywords
+                             userId:(NSString *)userId
                          completion:(void(^)(id responseObject,NSError *error))completionBlock;
 +(void)getFinancialDetailWithId:(NSString *)Id
                      completion:(void(^)(id responseObject,NSError *error))completionBlock;
