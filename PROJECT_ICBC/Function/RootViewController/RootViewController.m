@@ -7,9 +7,10 @@
 //
 
 #import "RootViewController.h"
+#import "LoginViewController.h"
 #import "BaseFrame.h"
 #import "MainPage.h"
-#import "AboroadService.h"
+#import "AbroadService.h"
 #import "FinanceProducts.h"
 #import "PickedList.h"
 #import "ServiceProgress.h"
@@ -31,7 +32,7 @@
 
 @property(nonatomic,strong)UIView *measureView;
 @property(nonatomic,strong)MainPage *mainPage;
-@property(nonatomic,strong)AboroadService *aboroadServce;
+@property(nonatomic,strong)AbroadService *aboroadServce;
 @property(nonatomic,strong)FinanceProducts *financeProducts;
 @property(nonatomic,strong)PickedList *pickedList;
 @property(nonatomic,strong)ServiceProgress *serviceProgress;
@@ -109,10 +110,10 @@
     }
     return _mainPage;
 }
--(AboroadService *)aboroadServce
+-(AbroadService *)aboroadServce
 {
     if (_aboroadServce == nil) {
-        _aboroadServce = [[AboroadService alloc]init];
+        _aboroadServce = [[AbroadService alloc]init];
         _aboroadServce.tag =301;
     }
     return _aboroadServce;
@@ -318,8 +319,6 @@
 
 -(void)logout
 {
-    [self presentViewController:[LoginViewController new] animated:YES completion:^{
-        
-    }];
+    [UIApplication sharedApplication].keyWindow.rootViewController = [LoginViewController new];
 }
 @end

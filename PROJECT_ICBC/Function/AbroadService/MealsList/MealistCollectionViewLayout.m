@@ -42,9 +42,8 @@
     
     collectionViewLayoutAttributes.center = CGPointMake(self.collectionView.center.x + indexPath.row * 380 , 380);
     collectionViewLayoutAttributes.bounds = CGRectMake(0, 0, 275 , 400);
-    CGFloat xScale = abs((point.x +self.collectionView.center.x - collectionViewLayoutAttributes.center.x)< 380)? (380 - fabs(point.x +self.collectionView.center.x - collectionViewLayoutAttributes.center.x))/380 : 0 ;
+    CGFloat xScale = (point.x +self.collectionView.center.x - collectionViewLayoutAttributes.center.x)< 380? (380 - fabs(point.x +self.collectionView.center.x - collectionViewLayoutAttributes.center.x))/380 : 0 ;
     collectionViewLayoutAttributes.transform = CGAffineTransformMakeScale(1 + xScale * 60 /275,1 + xScale * 100/400);
-    
     return collectionViewLayoutAttributes;
 }
 

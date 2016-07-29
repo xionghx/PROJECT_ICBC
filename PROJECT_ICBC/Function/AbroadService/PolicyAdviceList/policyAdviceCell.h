@@ -1,5 +1,5 @@
 //
-//  policyAdviceCell.h
+//  PolicyAdviceCell.h
 //  PROJECT_ICBC
 //
 //  Created by xionghuaxin on 7/22/16.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface policyAdviceCell : UITableViewCell
+@interface PolicyAdviceCell : UITableViewCell
 @property(nonatomic,strong)UILabel *serialNumberLabel;
 @property(nonatomic,strong)UILabel *contentLabel;
 

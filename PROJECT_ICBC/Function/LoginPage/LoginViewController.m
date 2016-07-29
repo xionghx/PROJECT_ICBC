@@ -261,6 +261,7 @@
 }
 -(void)logout
 {
+    
     [UIApplication sharedApplication].delegate.window.rootViewController = [LoginViewController new];
     
 }
