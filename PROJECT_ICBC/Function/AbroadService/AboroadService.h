@@ -1,5 +1,5 @@
 //
-//  AbroadService.h
+//  AboroadService.h
 //  PROJECT_ICBC
 //
 //  Created by xionghuaxin on 7/21/16.
@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "BaseFrame.h"
 
-@interface AbroadService : BaseFrame
+@interface AboroadService : BaseFrame
 
 @end

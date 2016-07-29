@@ -1,17 +1,17 @@
 //
-//  PolicyAdviceCell.m
+//  policyAdviceCell.m
 //  PROJECT_ICBC
 //
 //  Created by xionghuaxin on 7/22/16.
 //  Copyright © 2016 xionghuanxin. All rights reserved.
 //
 
-#import "PolicyAdviceCell.h"
-@interface PolicyAdviceCell ()
+#import "policyAdviceCell.h"
+@interface policyAdviceCell ()
 @property(nonatomic,strong)UIImageView *backgroundImageView;
 @end
 
-@implementation PolicyAdviceCell
+@implementation policyAdviceCell
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -54,6 +54,10 @@
         make.right.top.bottom.equalTo(self);
         make.left.equalTo(self.serialNumberLabel);
     }];
+//    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.top.and.left.and.right.equalTo(self.backgroundView);
+//        make.bottom.equalTo(self.serialNumberLabel);
+//    }];
 }
 -(UILabel *)serialNumberLabel
 {

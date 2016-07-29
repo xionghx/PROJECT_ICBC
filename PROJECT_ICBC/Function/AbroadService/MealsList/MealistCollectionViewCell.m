@@ -7,7 +7,6 @@
 //
 
 #import "MealistCollectionViewCell.h"
-#import "PopUpView.h"
 @interface MealistCollectionViewCell ()<UITableViewDelegate,UITableViewDataSource>
 @property(nonatomic ,strong)UIButton * detailButton;
 @property(nonatomic ,strong)UIImageView * backgroudImageView;
@@ -15,8 +14,7 @@
 @property(nonatomic ,strong)UILabel *titleLabel;
 
 @property(nonatomic ,strong)UITableView *mealTableView;
-@property(nonatomic ,strong)NSDictionary *dataSource;
-@property(nonatomic ,strong)PopUpView *popUpVIew;
+@property(nonatomic ,strong)NSMutableArray *dataSource;
 
 @end
 
@@ -26,7 +24,7 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.dataSource = [NSDictionary dictionary];
+        self.dataSource = [NSMutableArray array];
         
         [self setupUI];
         
@@ -56,36 +54,12 @@
 -(void)setupValueWith:(NSDictionary *)data
 {
     self.title = data[@"name"];
-    self.dataSource = data;
+    [self.dataSource removeAllObjects];
+    [self.dataSource addObject:@{@"name":@"推荐以下服务:"}];
+    [self.dataSource addObjectsFromArray:data[@"summaryFs"]];
     [self.mealTableView reloadData];
 }
--(void)detailButtonTaped
-{
-//    PopUpView *aView = [[PopUpView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-//    aView.title = _dataSource[@"name"];
-    
-    self.popUpVIew.title = self.dataSource[@"name"];
-    NSMutableString *string = [NSMutableString string];
-    [string appendString:[NSString stringWithFormat:@"%@\n\n",self.dataSource[@"name"]]];
-    [string appendString:@"推荐业务\n\n"];
-    NSInteger index = 1;
-    for (NSDictionary * dic in self.dataSource[@"summaryFs"]) {
-        [string appendString:[NSString stringWithFormat:@"%ld、%@\n\n",index,dic[@"info"]]];
-        index ++;
-    }
-    [self.popUpVIew addLabelInView:self.popUpVIew withContent:string];
-    [self.popUpVIew addSaveButtonWithTarget:self Action:@selector(saveButtonTaped) inView:self.popUpVIew];
-    [self.popUpVIew addDealButtonWithTarget:self Action:@selector(dealButtonTaped) inView:self.popUpVIew];
-    [self.popUpVIew popupSelf];
-}
--(void)saveButtonTaped
-{
-    [self.popUpVIew popupBuyingWindow];
-}
--(void)dealButtonTaped
-{
-    
-}
+
 #pragma mark----------setter
 -(void)setTitle:(NSString *)title
 {
@@ -115,7 +89,6 @@
         _detailButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_detailButton setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"未选中_23" ofType:@"png" inDirectory:@""]] forState:UIControlStateNormal];
         [_detailButton setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"选中_23" ofType:@"png" inDirectory:@""]] forState:UIControlStateSelected];
-        [_detailButton addTarget:self action:@selector(detailButtonTaped) forControlEvents:UIControlEventTouchUpInside];
     }
     return _detailButton;
 }
@@ -138,17 +111,10 @@
     }
     return _backgroudImageView;
 }
--(PopUpView *)popUpVIew
-{
-    if (_popUpVIew == nil) {
-        _popUpVIew =[[PopUpView alloc]initWithFrame:[UIScreen mainScreen].bounds];
-    }
-    return _popUpVIew;
-}
 #pragma mark----------------<UITableViewDelegate,UITableViewDataSource>
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.dataSource[@"summaryFs"] count] + 1;
+    return self.dataSource.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -157,14 +123,8 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:REUSE_MARK];
     }
-    if (indexPath.row != 0) {
-        cell.textLabel.text = self.dataSource[@"summaryFs"][indexPath.row-1][@"name"];
-
-    }else{
-        cell.textLabel.text = @"推荐以下服务:";
-
-    }
     cell.textLabel.textAlignment = NSTextAlignmentCenter;
+    cell.textLabel.text = self.dataSource[indexPath.row][@"name"];
     cell.backgroundColor = [UIColor clearColor];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     

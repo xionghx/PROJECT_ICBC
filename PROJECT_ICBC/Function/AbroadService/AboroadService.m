@@ -1,12 +1,12 @@
 //
-//  AbroadService.m
+//  AboroadService.m
 //  PROJECT_ICBC
 //
 //  Created by xionghuaxin on 7/21/16.
 //  Copyright © 2016 xionghuanxin. All rights reserved.
 //
 
-#import "AbroadService.h"
+#import "AboroadService.h"
 #import "MealsListView.h"
 #import "PolicyAdviceView.h"
 #import "ChooseByYourselfModelListView.h"
@@ -15,7 +15,7 @@
 
 #import "NetRequest.h"
 
-@interface AbroadService ()
+@interface AboroadService ()
 @property(nonatomic ,strong)UIView *buttonView;
 @property(nonatomic ,strong)UIImageView *buttonShdownView;
 @property(nonatomic ,strong)UIButton *  mealsListButton;
@@ -32,7 +32,7 @@
 
 @end
 
-@implementation AbroadService
+@implementation AboroadService
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -40,7 +40,7 @@
     if (self) {
         self.buttonArray = @[].mutableCopy;
         self.viewsArray = [NSMutableArray array];
-        self.titleLabel.text = @"AbroadService";
+        self.titleLabel.text = @"AboroadService";
         [self loadDataSource];
         [self setupUI];
     }
@@ -108,7 +108,6 @@
 {
     if (_policyAdviceView == nil) {
         _policyAdviceView = [[PolicyAdviceView alloc]initWithFrame:CGRectZero];
-
     }
     return _policyAdviceView;
 }
@@ -142,12 +141,15 @@
     [self.policyAdviceView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
+    
     [self addSubview:self.buttonView];
     [self.buttonView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self).offset(26);
         make.centerX.equalTo(self);
         make.size.mas_equalTo(CGSizeMake(118 *3, 42));
     }];
+    
+    
     [self.buttonView addSubview:self.buttonShdownView];
     [self.buttonShdownView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.buttonView.mas_bottom);
@@ -155,6 +157,8 @@
         make.size.mas_equalTo(CGSizeMake(368, 16));
 
     }];
+    
+    
     [self.buttonView addSubview:self.mealsListButton];
     [self.buttonArray addObject:self.mealsListButton];
     [self.mealsListButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -180,9 +184,6 @@
     [self.viewsArray addObject:self.mealslistView];
     [self.viewsArray addObject:self.policyAdviceView];
     [self.viewsArray addObject:self.chooseByYourselfModelListView];
-    for (UIButton *button in self.buttonArray) {
-        button.adjustsImageWhenHighlighted=NO;
-    }
 }
 -(void)buttonTaped:(UIButton *)sender
 {
@@ -201,9 +202,21 @@
         }
         index ++;
     }
+    
+    
+    
+    
+    
 }
 
 -(void)loadDataSource
 {
+//    [NetRequest getMealsListWithPageSize:@"2" andPageNumb:@"1" andUserId:@"22" completion:^(id responseObject, NSError *error) {
+//        if (error) {
+//            NSLog(@"%@",error);
+//        }else{
+////            NSLog(@"%@",responseObject);
+//        }
+//    }];
 }
 @end
