@@ -1402,7 +1402,7 @@
 				INFOPLIST_FILE = PROJECT_ICBC/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-all_load ";
-				"OTHER_LDFLAGS[arch=*]" = "";
+				"OTHER_LDFLAGS[arch=*]" = "-all_load ";
 				PRODUCT_BUNDLE_IDENTIFIER = "Mr-xiong.PROJECT-ICBC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
